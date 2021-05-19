@@ -1,7 +1,39 @@
-void setup(){
-  size(600,600);
+Ball ball;
+Paddle paddle;
+
+void setup() {
+  size(500, 500);
+  ball = new Ball(width/2, height/2);
+  ball.speedX = 10;
+  ball.speedY = random(-10, 10);
+  paddle = new Paddle();
 }
 
-void draw(){
+void draw() {
   background(0);
+  paddle.display();
+  ball.move();
+  ball.display();
+  if (ball.x > width) {
+    ball.speedX = -ball.speedX;
+  }
+
+  if (ball.x < 0) {
+    ball.speedX = -ball.speedX;
+  }
+
+  if (ball.y > height) {
+    ball.x = width/2;
+    ball.y = height/2;
+    ball.speedY = random(-10, 10);
+  }
+
+  if (ball.y < 0) {
+    ball.speedY = -ball.speedY;
+  }
+
+  if (ball.x < mouseX+50 && ball.x > mouseX-50 && ball.y > 450) {
+    ball.speedY = -ball.speedY;
+    ball.speedX = random(-10,10);
+  }
 }
