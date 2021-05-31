@@ -5,10 +5,12 @@ class Ball {
   float speedY;
   float diameter;
   color c;
+  float health;
 
-  Ball(float x, float y) {
+  Ball(float x, float y, float health) {
     this.x = x;
     this.y = y;
+    this.health=health;
     speedX = 0;
     speedY = 0;
     c = (225);
