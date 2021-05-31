@@ -3,7 +3,7 @@ Paddle paddle;
 
 void setup() {
   size(500, 500);
-  ball = new Ball(width/2, height/2);
+  ball = new Ball(width/2, height/2, 5);
   ball.speedX = 10;
   ball.speedY = random(-10, 10);
   paddle = new Paddle();
@@ -26,6 +26,7 @@ void draw() {
     ball.x = width/2;
     ball.y = height/2;
     ball.speedY = random(-10, 10);
+    ball.health -=1;
   }
 
   if (ball.y < 0) {
